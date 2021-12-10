@@ -1,0 +1,182 @@
+# Basics
+
+## Kernel
+
+### Access kernel
+
+Para interagir com o Elixir usamos o comando`iex`
+
+#### Comandos basicos
+
+* Soma `5 + 5`
+* Sub `5 - 2`
+* Multi `5 * 2`
+* Divisao `5 / 2`, vai sempre retornar um float
+  * Para divivir e ter o inteiro usamos o `div(5 + 2)`
+
+#### Operadores logicos
+
+* Temos todos os operadores lógicos como em qualquer linguagem
+  * Exemplo `&&`, `||`
+
+#### String
+
+* Declaramos com `"string"`
+* Concatenação com uma variavel
+
+## String
+
+* Declaramos com "string"
+* Concatenação com uma variavel
+
+```elixir
+x = "world"
+"Hello #{x}"
+
+# OR
+
+"hello" <> " " <> "world"
+```
+
+* Modificação de strings
+  * No elixir não existem objetos, então não é possivel fazer `"String".lower()`
+  * No elixir existem os modulos, que são como namespaces que basicamente são conjuntos de funções
+    * Podemos acessar apartir do **Modulo** `String`
+* No elixir temos a **aridade / arity** das funções, que podemos ver no modulo de `Sting` por exemplo.
+
+![image](https://i.imgur.com/6uA3mn2.png)
+
+* Ver a documentação com `h` antes do comando
+  * Exemplo: `h String.slice`
+
+<!-- livebook:{"break_markdown":true} -->
+
+### Exemplo de aplicação do modulo String
+
+```elixir
+String.downcase("UPPERCASE WORD")
+```
+
+### Exemplo de imutablididade
+
+* Repare que a variavel x não mudificou diretamente
+  ![Example](https://i.imgur.com/rcq3HfL.png)
+
+## Atoms
+
+* Constantes onde a valor da constante é o proprio nome
+  * Exemplo da declaração `:atom`
+* O `true` e o `false` no Elixir são **Atoms**
+  * Podemos verificar o tipo das variaveis com o `is_`
+    * `is_atom()`
+    * `is_string()`
+
+## Comparação
+
+* No Elixir o `==` funciona como na matematica, ou seja, tem mesmo de ser igual
+
+```elixir
+"ola" = "ola"
+"ola" = "popo"
+```
+
+### Existe o conceito de Pattern Matching
+
+* Em Elixir, o operador `=` é na verdade o nosso operador match, comparável ao sinal de igualdade da matemática. Quando usado, a expressão inteira se torna uma equação e faz com que Elixir combine os valores do lado esquerdo com os valores do lado direito da expressão. Se a comparação for bem sucedida, o valor da equação é retornado. Se não, um erro é lançado.
+
+## Listas
+
+* No Elixir as listas são encadeadas, ou seja:
+  * `x = [1,2,3] = [1] -> [2] -> [3]`
+  * Não podemos aceder `x[0]`
+* Valores variaveis:
+  * `[1, 2, 3 , "string"]`
+  * `[1, 2.3, "string"]`
+* Soma de listas
+
+```elixir
+[1, 2, 3] ++ [4, 5, 6]
+```
+
+* Substração de listas
+
+```elixir
+[1, 2, 3] -- [1, 3]
+```
+
+* Primeiro elemento da lista
+
+```elixir
+hd([1, 2, 3])
+```
+
+* Cauda da lista -> todos os elementos menos o primeiro
+
+```elixir
+tl([1, 2, 3])
+```
+
+## Tuplas
+
+* Uma lista de chaves, como um objeto
+
+```elixir
+x = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+elem(x, 7)
+```
+
+* Modificação de um elemento na tupla
+
+```elixir
+x = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+put_elem(x, 7, "banana")
+```
+
+* Maior uso das tuplas 
+  * Em operações, onde a 1 posição é um **Atom** e o 2 é o retorno da função
+  * `ok` -> sucesso
+  * `error`-> error
+    ![](https://i.imgur.com/MynZUCU.png)
+
+## Maps
+
+* Estrutura de dados `chave: valor`
+  * `%{a: 1, b: 2, c: 3}` 
+    ou
+  * `%{"a" => 1, "b" => 2, "c" => 3}`
+
+```elixir
+%{a: 1, b: 2, c: 3}
+```
+
+#### Diferenças
+
+<!-- livebook:{"break_markdown":true} -->
+
+* Acesso as chaves
+
+```elixir
+my_map = %{a: 1, b: 2, c: 3}
+my_map.b
+```
+
+```elixir
+my_map = %{"a" => 1, "b" => 2, "c" => 3}
+my_map["c"]
+```
+
+* Diferentes tipos de dados
+  * `%{"a" => 1, "b" => "banana", "c" => 3.6}`
+
+## Modulos auxiliares das listas
+
+* String
+* Map
+* List
+
+```elixir
+my_map = %{"a" => 1, "b" => 2, "c" => 3}
+Map.put(my_map, "d", "novo")
+```
