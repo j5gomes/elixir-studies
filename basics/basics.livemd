@@ -180,3 +180,8 @@ my_map["c"]
 my_map = %{"a" => 1, "b" => 2, "c" => 3}
 Map.put(my_map, "d", "novo")
 ```
+
+## Enum
+
+* Provides a set of algorithms to work with enumerables.
+  * Usege with **Lists, Maps and Rages**
