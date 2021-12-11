@@ -185,3 +185,67 @@ Map.put(my_map, "d", "novo")
 
 * Provides a set of algorithms to work with enumerables.
   * Usege with **Lists, Maps and Rages**
+
+## Case
+
+* Matches the given expression against the given clauses.
+
+```elixir
+## Examples
+file = "test.txt"
+
+case File.read(file) do
+  {:ok, contents} when is_binary(contents) ->
+    String.split(contents, "\n")
+
+  {:error, _reason} ->
+    IO.inspect("could not find #{file}, assuming empty...")
+end
+```
+
+In the example above, we match the result of File.read/1 against each clause
+"head" and execute the clause "body" corresponding to the first clause that
+matches.
+
+If no clause matches, an error is raised. For this reason, it may be necessary
+to add a final catch-all clause (like _) which will always match.
+
+```
+x = 10
+
+case x do
+  0 ->
+    "This clause won't match"
+
+  _ ->
+    "This clause would match any value (x = #{x})"
+end
+#=> "This clause would match any value (x = 10)"
+```
+
+## Pipe operator
+
+* The pipe operator `|>` passes the result of an expression as the first parameter of another expression.
+
+```elixir
+"Elixir rocks"
+|> String.upcase()
+|> String.split()
+```
+
+Programming can get messy. So messy in fact that function calls can get so embedded that they become difficult to follow. Take the following nested functions into consideration:
+
+```
+foo(bar(baz(new_function(other_function()))))
+```
+
+Here, we are passing the value` other_function/0` to `new_function/1`, and `new_function/1` to `baz/1`, `baz/1` to `bar/1`, and finally the result of `bar/1` to `foo/1`. 
+Elixir takes a pragmatic approach to this syntactical chaos by giving us the pipe operator. The pipe operator which looks like `|>` takes the result of one expression, and passes it on. Let’s take another look at the code snippet above rewritten using the pipe operator.
+
+```
+other_function() |> new_function() |> baz() |> bar() |> foo()
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+
