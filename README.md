@@ -2,7 +2,7 @@
   Elixir studies 👋
 </h1>
 <h1 align="center">
- <img alt="Elixir studies" height="100" title="" src="https://i.imgur.com/LIkv4T3.png" />
+ <img alt="Elixir studies" height="100" title="" src="https://i.imgur.com/YDPCCmQ.png" />
 </h1>
 
 ## 💻 Project
