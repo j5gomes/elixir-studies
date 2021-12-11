@@ -186,6 +186,20 @@ Map.put(my_map, "d", "novo")
 * Provides a set of algorithms to work with enumerables.
   * Usege with **Lists, Maps and Rages**
 
+* **Reduce**
+  * Invokes fun for each element in the enumerable with the
+
+accumulator.
+
+* The initial value of the accumulator is acc. The function is
+  invoked for each element in the enumerable with the accumulator.
+  The result returned by the function is used as the accumulator for
+  the next iteration. The function returns the last accumulator.
+
+```elixir
+Enum.reduce([1, 2, 3], 0, fn x, acc -> x + acc end)
+```
+
 ## Case
 
 * Matches the given expression against the given clauses.
@@ -246,6 +260,37 @@ Elixir takes a pragmatic approach to this syntactical chaos by giving us the pip
 other_function() |> new_function() |> baz() |> bar() |> foo()
 ```
 
-<!-- livebook:{"break_markdown":true} -->
+## Functions
 
+* Anounimous function
 
+We can declare as
+
+```
+Enum.map(fn line -> parse_line(line) end)
+```
+
+or
+
+```
+Enum.map(&parse_line(&1))
+```
+
+In this case the first one is more explicit becasuse we are receiving an element
+
+But when is not the case we can use the second onde notation
+
+```
+List.update_at(2, &String.to_integer/1)
+```
+
+## Guards
+
+Guards are a way to augment pattern matching with more complex checks. They are allowed in a predefined set of constructs where pattern matching is allowed.
+
+Not all expressions are allowed in guard clauses, but only a handful of them. This is a deliberate choice. This way, Elixir (and Erlang) can make sure that nothing bad happens while executing guards and no mutations happen anywhere. It also allows the compiler to optimize the code related to guards efficiently.
+
+```elixir
+def empty_map?(map) when map_size(map) == 0, do: true
+def empty_map?(map) when is_map(map), do: false
+```
