@@ -31,14 +31,6 @@
 
 ---
 
-## Author
-
-👤 **Joao Gomes**
-
-- Twitter: [@Joaopfg2](https://twitter.com/Joaopfg2)
-- Github: [@JoaoGomes5](https://github.com/JoaoGomes5)
-- LinkedIn: [@joão-gomes-b732541a4](https://linkedin.com/in/joão-gomes-b732541a4)
-
 <p>
     <a href="https://twitter.com/Joaopfg2" target="_blank">
     <img alt="Twitter: Joaopfg2" src="https://img.shields.io/twitter/follow/Joaopfg2.svg?style=social" />
