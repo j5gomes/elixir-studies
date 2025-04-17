@@ -33,7 +33,7 @@
 
 <p>
     <a href="https://twitter.com/Joaopfg2" target="_blank">
-    <img alt="Twitter: Joaopfg2" src="https://img.shields.io/twitter/follow/Joaopfg2.svg?style=social" />
+    <img alt="Twitter: Joaopfg2" src="https://img.shields.io/twitter/follow/j5gomes.svg?style=social" />
   </a>
 </p>
 ---
